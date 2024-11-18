@@ -3,11 +3,12 @@ def kapreskar(num):
         num = str(num).replace("", " ").split()   
         while len(num) < 4:
             num.append("0")
-        num.sort()
         min_num = max_num = ""
-        for _ in range(len(num)):    
-            min_num += num[_]
-            max_num += num[3 - _]
+        for i in range(len(num)):
+            num.sort()    
+            min_num += num[i]
+            num.sort(reverse = True)
+            max_num += num[i]
         num = int(max_num) - int(min_num)
         if num == 6174:
             print(f"We achieved the number 6174 in {i + 1} itenarations")
